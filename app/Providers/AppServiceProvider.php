@@ -16,9 +16,15 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         LunarPanel::panel(
-            fn ($panel) => $panel->plugins([
-                new ShippingPlugin,
-            ])
+            fn ($panel) => $panel
+                ->plugins([new ShippingPlugin])
+                ->colors([])
+//                ->brandName('Xentral Methods')
+                ->brandLogo(asset('images/xm.png'))
+                ->darkModeBrandLogo(asset('images/xm.png'))
+                ->brandLogoHeight('3rem')
+                ->resources(['App\Filament\Resources\ReportResource',...$panel->getResources()])
+
         )
             ->register();
     }
