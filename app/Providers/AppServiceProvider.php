@@ -17,13 +17,15 @@ class AppServiceProvider extends ServiceProvider
     {
         LunarPanel::panel(
             fn ($panel) => $panel
+                ->path('admin')
                 ->plugins([new ShippingPlugin])
                 ->colors([])
 //                ->brandName('Xentral Methods')
                 ->brandLogo(asset('images/xm.png'))
                 ->darkModeBrandLogo(asset('images/xm.png'))
                 ->brandLogoHeight('3rem')
-                ->resources(['App\Filament\Resources\ReportResource',...$panel->getResources()])
+                ->resources(['App\Filament\Resources\ReportResource','App\Filament\Resources\UpdateLogResource','App\Filament\Resources\BackupLogResource',
+                    ...$panel->getResources()])
 
         )
             ->register();
