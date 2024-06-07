@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Providers\SaleConfirmed;
 use Illuminate\View\View;
 use Livewire\Component;
 use Lunar\Facades\CartSession;
@@ -23,6 +24,9 @@ class CheckoutSuccessPage extends Component
             return;
         }
         $this->order = $this->cart->completedOrder;
+
+        SaleConfirmed::dispatch($this->order); // Generate Sale Report
+
 
         CartSession::forget();
     }

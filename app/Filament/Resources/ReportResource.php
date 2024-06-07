@@ -66,52 +66,9 @@ class ReportResource extends Resource
                         return __("$myr");
                     })
                     ->label('Checkout Amount (RM)'),
-
-                Tables\Columns\TextColumn::make('upline_1')
-                    ->label('Kindergarten'),
-
-                Tables\Columns\TextColumn::make('upline_2')
-                    ->label('Dealer'),
-
-                Tables\Columns\TextColumn::make('upline_3')
-                    ->label('Sales'),
-
-                Tables\Columns\TextColumn::make('kg_commission')
-                    ->formatStateUsing(function ($state) {
-                        $myr = number_format($state, 2);
-
-                        return __("$myr");
-                    })
-                    ->label('Kindergarten Commission (RM)'),
-
-                Tables\Columns\TextColumn::make('dealer_commission')
-                    ->formatStateUsing(function ($state) {
-                        $myr = number_format($state, 2);
-
-                        return __("$myr");
-                    })
-                    ->label('Dealer Commission (RM)'),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([
-
-                TernaryFilter::make('upline_1')
-                    ->label('Has Kindergarten')
-                    ->nullable()
-                    ->trueLabel('Yes')
-                    ->falseLabel('No'),
-
-                TernaryFilter::make('upline_2')
-                    ->label('Has Dealer')
-                    ->nullable()
-                    ->trueLabel('Yes')
-                    ->falseLabel('No'),
-
-                TernaryFilter::make('upline_3')
-                    ->label('Has Sale')
-                    ->nullable()
-                    ->trueLabel('Yes')
-                    ->falseLabel('No'),
 
                 Filter::make('created_at')
                     ->form([

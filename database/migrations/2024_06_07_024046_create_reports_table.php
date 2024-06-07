@@ -18,11 +18,6 @@ return new class extends Migration
             $table->string('product_code')->nullable();
             $table->string('amount')->nullable();
             $table->string('quantity')->nullable();
-            $table->string('upline_1')->nullable();
-            $table->string('upline_2')->nullable();
-            $table->string('upline_3')->nullable();
-            $table->string('dealer_commission')->nullable();
-            $table->string('kg_commission')->nullable();
             $table->timestamps();
         });
     }
